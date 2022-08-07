@@ -22,6 +22,13 @@ const Contatos = () => {
         if(author.length <= 0 || content.length <= 0){
             return setValidator(!validator)
         }
+        // validando formato do email
+        if (email.indexOf(" ") === -1 && email.indexOf("@") > 0 && email.indexOf(".com") !== -1 && email.indexOf("@") < email.indexOf(".") -1){
+            return setValidator(validator)
+        }else{
+            return setValidator(!validator)
+        }
+
         const bodyForm = {
             email: author,
             message: content,
